@@ -11,10 +11,6 @@ reports/
 extent-report*.html
 screenshots/
 
-# IntelliJ
-.idea/
-*.iml
-
 # OS files
 .DS_Store
 Thumbs.db
