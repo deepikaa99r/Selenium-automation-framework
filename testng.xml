@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="FullSuite">
+
+    <listeners>
+        <listener class-name="listeners.TestListener"/>
+        <listener class-name="listeners.RetryTransformer"/>
+    </listeners>
+
+    <test name="Heroku + AE (safe)" parallel="methods" thread-count="3">
+        <classes>
+            <class name="tests.herokuapp.AlertsTest"/>
+            <class name="tests.herokuapp.DragDropTest"/>
+            <class name="tests.herokuapp.DynamicLoadingTest"/>
+            <class name="tests.herokuapp.WindowsTest"/>
+            <class name="tests.herokuapp.FramesTest"/>
+            <class name="tests.herokuapp.FileUploadTest"/>
+            <class name="tests.automationexercise.LoginTest"/>
+            <class name="tests.automationexercise.SignupTest"/>
+        </classes>
+    </test>
+
+    <test name="Cart Tests" parallel="false">
+        <classes>
+            <class name="tests.automationexercise.CartTest"/>
+        </classes>
+    </test>
+
+</suite>
