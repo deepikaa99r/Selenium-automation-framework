@@ -11,9 +11,6 @@ reports/
 extent-report*.html
 screenshots/
 
-# Screenshots
-*.png
-
 # IntelliJ
 .idea/
 *.iml
