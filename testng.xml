@@ -6,7 +6,7 @@
         <listener class-name="listeners.TestListener"/>
         <listener class-name="listeners.RetryTransformer"/>
     </listeners>
-
+    
     <test name="Heroku + AE (safe)" parallel="methods" thread-count="3">
         <classes>
             <class name="tests.herokuapp.AlertsTest"/>
@@ -19,6 +19,7 @@
             <class name="tests.automationexercise.SignupTest"/>
         </classes>
     </test>
+
 
     <test name="Cart Tests" parallel="false">
         <classes>

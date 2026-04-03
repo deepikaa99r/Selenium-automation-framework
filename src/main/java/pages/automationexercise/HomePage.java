@@ -3,6 +3,9 @@ package pages.automationexercise;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import utils.ConfigReader;
+import utils.WaitUtil;
+
 public class HomePage extends BasePage {
 
 	By signupLoginBtn = By.xpath("//a[contains(text(),'Signup / Login')]");
@@ -38,7 +41,8 @@ public class HomePage extends BasePage {
     
     public ProductsPage goToProductsPage() 
     {
-        click(productsBtn);
+        WaitUtil.removeAds();
+        driver.get(ConfigReader.get("baseUrl") + "products");      
         return new ProductsPage(driver);
     }
 }

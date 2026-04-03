@@ -2,8 +2,10 @@ package utils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import factory.DriverFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -34,17 +36,20 @@ public class WaitUtil {
 
         WebDriver driver = DriverFactory.getDriver();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+ 
 
         try {
             WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
             element.click();
         } catch (Exception e) {
 
+        	removeAds();
+        	new Actions(driver).sendKeys(Keys.ESCAPE).perform();
             ((JavascriptExecutor) driver).executeScript(
                 "document.querySelectorAll('iframe').forEach(el => el.remove());"
             );
 
-            WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
 
             ((JavascriptExecutor) driver)
                 .executeScript("arguments[0].click();", element);

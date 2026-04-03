@@ -12,6 +12,13 @@ public class ExtentManager {
     public static ExtentReports getInstance() {
 
         if (extent == null) {
+        	
+        	String baseDir = System.getProperty("user.dir") + "/reports/";
+        	String screenshotDir = baseDir + "screenshots/";
+
+        	// create folders
+        	new java.io.File(baseDir).mkdirs();
+        	new java.io.File(screenshotDir).mkdirs();
 
             String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
             String reportPath = "reports/extent-report_" + timestamp + ".html";
